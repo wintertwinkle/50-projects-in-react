@@ -44,9 +44,9 @@ componentDidMount() {
 }
 
 async fetchNewJoke() {
-const joke = await this.generateJoke()
-this.setState({
-joke: joke,
-})
+  const joke = await this.generateJoke()
+  this.setState({
+    joke: joke,
+  })
 }
 ```
