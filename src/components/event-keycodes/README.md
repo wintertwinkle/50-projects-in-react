@@ -21,7 +21,7 @@ _Modifier and non-printing keys such as Shift, Esc, and delete trigger keydown e
 
 But it doesn't answer why `keypress` is deprecated.
 
-![thousands years later](../../docImage/OIP.nYBcrYUG2U8jZGtNyrq4dAAAAA.jpg)
+![img](./images/aaa.jpg)
 
 Ten minutes later.... ok , I gave up.
 
