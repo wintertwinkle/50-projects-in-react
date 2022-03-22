@@ -3,7 +3,7 @@
 ## What's the difference between event `keydown` and `keypress`?
 
 First, I used the event `keypress` to listen the keyboard, but I found that I can't catch the event when I press key like `F1`, `Esc`, `Home`, etc. I can only catch the event from numbers and letters.
-But after I changed `keypress` to `keydown`, I found every key in keyboard will omit their event.
+But after I changed `keypress` to `keydown`, I found every key in keyboard will emit their event.
 
 ## Search Result
 
