@@ -1,5 +1,5 @@
-import EventKeyCodes from "./components/event-keycodes"
+import Faq from "./components/faq"
 
 export default function App() {
-  return <EventKeyCodes />
+  return <Faq />
 }
