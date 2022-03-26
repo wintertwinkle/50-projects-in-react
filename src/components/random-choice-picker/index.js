@@ -2,7 +2,7 @@ import { Component } from "react"
 import "./style/index.css"
 import { nanoid } from "nanoid" // helps to generate unique key
 
-class RamdonChoicePicker extends Component {
+class RandomChoicePicker extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,6 +11,9 @@ class RamdonChoicePicker extends Component {
     }
     // binding
     this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.randomSelect = this.randomSelect.bind(this)
+    // lock Enter press when `randomSelect` is running.
+    this.isEnterLock = false
   }
 
   createTags() {
@@ -63,9 +66,8 @@ class RamdonChoicePicker extends Component {
         }
       }
     } else if (event.keyCode === 13) {
-      // Enter keyCode
       event.target.value = ""
-      this.ramdonSelect()
+      this.randomSelect()
     }
   }
 
@@ -73,25 +75,37 @@ class RamdonChoicePicker extends Component {
    * Bugs: sometimes need to press `Enter` twice to run `ramdonSelect()`,
    * I don't konw why, but I thought it's related to `setStatus`
    */
-  ramdonSelect() {
-    const boundary = this.state.tags.length
-    const times = 10 * Math.floor(Math.random() * boundary)
-    let selectedTagIndex = -1
-    let speed = 100
+  randomSelect() {
+    if (!this.isEnterLock) {
+      this.isEnterLock = true
+      const boundary = this.state.tags.length
+      // `times` decide how many times `setState()` will execute
+      // `times` is a random number
+      let times = 2 * Math.floor((Math.random() + 1) * boundary)
+      let selectedTagIndex = -1
+      let speed = 50
 
-    const interval = setInterval(() => {
-      setTimeout(() => {
+      const run = function () {
+        times--
         selectedTagIndex =
           selectedTagIndex === boundary - 1 ? 0 : selectedTagIndex + 1
         this.setState({
           highlightTagIndex: selectedTagIndex,
         })
-      }, speed)
-    }, speed)
+        if (times > 0) {
+          speed = 50 + this.BezierBlend(speed / 300) * 300
+          setTimeout(run, speed)
+        } else {
+          this.isEnterLock = false
+        }
+      }.bind(this)
 
-    setTimeout(() => {
-      clearInterval(interval)
-    }, times * 100)
+      setTimeout(run, speed)
+    }
+  }
+
+  BezierBlend(t) {
+    return t * t * (3 - 2 * t)
   }
 
   // Resouces: [https://stackoverflow.com/questions/12467240/determine-if-javascript-e-keycode-is-a-printable-non-control-character]
@@ -154,4 +168,4 @@ class RamdonChoicePicker extends Component {
   }
 }
 
-export default RamdonChoicePicker
+export default RandomChoicePicker

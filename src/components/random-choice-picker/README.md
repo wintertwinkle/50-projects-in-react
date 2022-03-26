@@ -1,4 +1,4 @@
-# RamdonChoicePicker
+# RandomChoicePicker
 
 ## How to focus an input element in React?
 

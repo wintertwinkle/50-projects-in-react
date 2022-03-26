@@ -1,5 +1,5 @@
-import RamdonChoicePicker from "./components/ramdon-choice-picker"
+import RandomChoicePicker from "./components/random-choice-picker"
 
 export default function App() {
-  return <RamdonChoicePicker />
+  return <RandomChoicePicker />
 }
