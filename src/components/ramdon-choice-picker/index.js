@@ -13,8 +13,6 @@ class RamdonChoicePicker extends Component {
     this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
-  componentDidMount() {}
-
   createTags() {
     const highlightTagIndex = this.state.highlightTagIndex
     const tagsEl = this.state.tags.map((tag, index) => {
@@ -33,11 +31,10 @@ class RamdonChoicePicker extends Component {
 
   handleKeyUp(event) {
     /**
-     * `KeyUp` event will emits all types of keyboard, but here we only need
+     * `KeyUp` event emits all types of keyboard, but here we only need
      * key which are printable, for performance and save of calculation, we add a filter
      * where logic executes only when key is printable
      */
-
     if (this.isPrintableKey(event.keyCode)) {
       if (event.key === ",") {
         if (this.state.highlightTagIndex !== -1) {
@@ -73,8 +70,8 @@ class RamdonChoicePicker extends Component {
   }
 
   /**
-   * Bugs: sometimes you need to press `Enter` twice ru run this,
-   * I don't konw why, but I thought it's related to `setStatu`
+   * Bugs: sometimes need to press `Enter` twice to run `ramdonSelect()`,
+   * I don't konw why, but I thought it's related to `setStatus`
    */
   ramdonSelect() {
     const boundary = this.state.tags.length
@@ -113,8 +110,8 @@ class RamdonChoicePicker extends Component {
 
   // Resouces: [https://stackoverflow.com/questions/1187518/how-to-get-the-difference-between-two-arrays-in-javascript]
   arrDiff(a1, a2) {
-    const a = [],
-      diff = []
+    const a = []
+    const diff = []
 
     for (let i = 0; i < a1.length; i++) {
       a[a1[i]] = true
@@ -158,77 +155,3 @@ class RamdonChoicePicker extends Component {
 }
 
 export default RamdonChoicePicker
-
-// const tagsEl = document.querySelector(".tags")
-// const textarea = document.querySelector(".textarea")
-
-// textarea.focus()
-
-// textarea.addEventListener("keyup", (e) => {
-//   createTags(e.target.value)
-
-//   if (e.key === "Enter") {
-//     setTimeout(() => {
-//       e.target.value = ""
-//     }, 10)
-
-//     ramdonSelect()
-//   }
-// })
-
-// Manipulation of DOM like this is inefficient
-// We need a more efficient way to do the operaiton of DOM.
-// maybe virtual DOM is a good way.
-// [What is Virtual Dom? And Why is it faster?]
-// (https://dev.to/karthikraja34/what-is-virtual-dom-and-why-is-it-faster-14p9)
-
-// function createTags(input) {
-//   const tags = input
-//     .split(",")
-//     .filter((tag) => tag.trim() !== "")
-//     .map((tag) => tag.trim())
-//   tagsEl.innerHTML = ""
-//   tags.forEach((tag) => {
-//     const tagEl = document.createElement("span")
-//     tagEl.classList.add("tag")
-//     tagEl.innerText = tag
-//     tagsEl.appendChild(tagEl)
-//   })
-// }
-
-// function ramdonSelect() {
-//   const times = 15
-
-//   const interval = setInterval(() => {
-//     const randomTag = pickRandomTag()
-
-//     highlightTag(randomTag)
-
-//     setTimeout(() => {
-//       unHighlightTag(randomTag)
-//     }, 100)
-//   }, 100)
-
-//   setTimeout(() => {
-//     clearInterval(interval)
-
-//     setTimeout(() => {
-//       const randomTag = pickRandomTag()
-//       highlightTag(randomTag)
-//     })
-//   }, times * 100)
-// }
-
-// function pickRandomTag() {
-//   const tags = document.querySelectorAll(".tag")
-//   const pickedTagIndex = Math.floor(Math.random() * tags.length)
-//   return tags[pickedTagIndex]
-// }
-
-// function highlightTag(tag) {
-//   tag.classList.add("highlight")
-// }
-
-// function unHighlightTag(tag) {
-//   tag.classList.remove("highlight")
-// }
