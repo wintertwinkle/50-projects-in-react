@@ -1,5 +1,5 @@
-import RandomChoicePicker from "./components/random-choice-picker"
+import AnimatedNavigation from "./components/animated-navigation"
 
 export default function App() {
-  return <RandomChoicePicker />
+  return <AnimatedNavigation />
 }
