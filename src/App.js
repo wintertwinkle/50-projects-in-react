@@ -1,5 +1,5 @@
-import IncrementCounter from "./components/incrementing-counter"
+import DrinkWater from "./components/drink-water"
 
 export default function App() {
-  return <IncrementCounter title={"Twitter Followers"} counter={7000} />
+  return <DrinkWater goal="5" />
 }
