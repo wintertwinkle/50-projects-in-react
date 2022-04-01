@@ -1,5 +1,5 @@
-import DrinkWater from "./components/drink-water"
+import MovieApp from "./components/movie-app"
 
 export default function App() {
-  return <DrinkWater goal="5" />
+  return <MovieApp />
 }
