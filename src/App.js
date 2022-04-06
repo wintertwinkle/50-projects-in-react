@@ -1,5 +1,5 @@
-import MovieApp from "./components/movie-app"
+import BackgroudSlider from "./components/background-slider"
 
 export default function App() {
-  return <MovieApp />
+  return <BackgroudSlider />
 }
