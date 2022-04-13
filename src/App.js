@@ -1,5 +1,5 @@
-import ThemeClock from "./components/theme-clock"
+import ButtonRippleEffect from "./components/button-ripple-effect"
 
 export default function App() {
-  return <ThemeClock />
+  return <ButtonRippleEffect />
 }
