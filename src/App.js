@@ -1,5 +1,5 @@
-import ButtonRippleEffect from "./components/button-ripple-effect"
+import DragAndDrop from "./components/drag-and-drop"
 
 export default function App() {
-  return <ButtonRippleEffect />
+  return <DragAndDrop count={10} />
 }
