@@ -1,5 +1,5 @@
-import DragAndDrop from "./components/drag-and-drop"
+import DrawingApp from "./components/drawing-app"
 
 export default function App() {
-  return <DragAndDrop count={10} />
+  return <DrawingApp />
 }
