@@ -1,5 +1,5 @@
-import DrawingApp from "./components/drawing-app"
+import KeneticLoader from "./components/kenetic-css-loader"
 
 export default function App() {
-  return <DrawingApp />
+    return <KeneticLoader />
 }
