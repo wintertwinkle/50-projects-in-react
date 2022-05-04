@@ -1,5 +1,5 @@
-import KeneticLoader from "./components/kenetic-css-loader"
+import StickyNavbar from "./components/sticky-navbar"
 
 export default function App() {
-    return <KeneticLoader />
+    return <StickyNavbar />
 }
